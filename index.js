@@ -68,7 +68,25 @@ function animate(timestamp) {
     for (let i = 0; i < balls.length; i++) {
         balls[i].update();
     }
-    connect();
+    // connect();
+    for (let i = 0; i < balls.length; i++) {
+        for (let a = i; a < balls.length; a++) {
+            const x = (balls[i].x - balls[a].x) ** 2;
+            const y = (balls[i].y - balls[a].y) ** 2;
+            let distance = 150 - Math.sqrt(x + y);
+
+            if (distance < 150) {
+                const strokeStyle = `rgba(255, 255, 255, ${distance / 80})`;
+
+                view.strokeStyle = strokeStyle;
+                view.lineWidth = 1;
+                view.beginPath();
+                view.moveTo(balls[i].x, balls[i].y);
+                view.lineTo(balls[a].x, balls[a].y);
+                view.stroke();
+            }
+        }
+    }
 }
 
 // generating lines between the balls with opacity based on the distance between them
