@@ -33,7 +33,7 @@ class Ball {
 
         // enable this for circle balls but they run slower
         // view.beginPath();
-        // view.arc(this.x, this.y, this.width, 0, 2 * Math.PI); 
+        // view.arc(this.x, this.y, this.width, 0, 2 * Math.PI);
         // view.fill();
     }
 
@@ -78,7 +78,7 @@ function connect() {
         for (let a = i; a < balls.length; a++) {
             const x = (balls[i].x - balls[a].x) ** 2;
             const y = (balls[i].y - balls[a].y) ** 2;
-            let distance = 200 - Math.sqrt(x + y);
+            let distance = 150 - Math.sqrt(x + y);
 
             if (distance < 150) {
                 const strokeStyle = `rgba(255, 255, 255, ${distance / 80})`;
